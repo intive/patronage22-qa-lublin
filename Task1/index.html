@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA Task 1</title>
+  </head>
+  <body>
+    <div id="buttonContainer"></div>
+  </body>
+  <script>
+    let buttonContainer = document.getElementById("buttonContainer");
+    let table = document.createElement("table");
+    const maxRowIndex = 26;
+    const maxColumnIndex = 22;
+    let counter = 0;
+    let col = -1;
+    let row = -1;
+
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const buttonOnClickListener = () => {
+      counter++;
+      let button;
+      if (counter % 5 === 0) {
+        col = getRandomIntInclusive(0, maxColumnIndex);
+        row = getRandomIntInclusive(0, maxRowIndex);
+        let button = document.getElementById(["button", col, row].join("_"));
+        button.style.paddingLeft = "0px";
+      } else {
+        if (col >= 0 || row >= 0) {
+          let button = document.getElementById(["button", col, row].join("_"));
+          button.style = undefined;
+          col = -1;
+          row = -1;
+        }
+      }
+    };
+
+    for (let rowIndex = 0; rowIndex < maxRowIndex; rowIndex++) {
+      let tr = document.createElement("tr");
+      for (let index = 0; index < maxColumnIndex; index++) {
+        let td = document.createElement("td");
+        td.style.padding = "5px";
+        let button = document.createElement("button");
+        button.innerHTML = "Click me!";
+        button.id = ["button", index, rowIndex].join("_");
+        button.className = "button";
+        button.onclick = buttonOnClickListener;
+        td.appendChild(button);
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+
+    buttonContainer.appendChild(table);
+  </script>
+</html>
