@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+    <style>
+      .nav {
+        background-color: rgb(00, 188, 00);
+        height: 2rem;
+      }
+      .nav a {
+        padding: 1rem 1rem;
+      }
+    </style>
+  </head>
+  <header>
+    <div class="nav" id="navigationContainer">
+      <a id="HomePage" class="navItem" href="#home">Home Page</a>
+      <a id="ShopPage" class="navItem" href="#shop">Shop</a>
+      <a id="CartPage" class="navItem" href="#cart">Cart</a>
+      <a id="FavPage" class="navItem" href="#fav">My Favorites</a>
+      <a id="PromPage" class="navItem" href="#prom">Promotions</a>
+      <a id="OrdersPage" class="navItem" href="#orders">Orders</a>
+      <a id="LoginPage" class="navItem" href="#login">Log in</a>
+    </div>
+  </header>
+  <body>
+    <div>
+      <input
+        class="slider"
+        type="range"
+        name="red"
+        id="redSlider"
+        min="0"
+        max="255"
+      />
+    </div>
+    <div>
+      <input
+        class="slider"
+        type="range"
+        name="green"
+        id="greenSlider"
+        min="0"
+        max="255"
+      />
+    </div>
+    <div>
+      <input
+        class="slider"
+        type="range"
+        name="blue"
+        id="blueSlider"
+        min="0"
+        max="255"
+      />
+    </div>
+    <div id="PagePlaceHolder">
+      <label id="PageText" type="text"></label>
+    </div>
+  </body>
+  <script>
+    const updateColors = (r, g, b) => {
+      const nav = document.getElementById("navigationContainer");
+      const navItems = nav.getElementsByClassName("navItem");
+      for (let index = 0; index < navItems.length; index++) {
+        navItems[index].style.color = "rgb(" + [r, g, b].join(",") + ")";
+        console.log("rgb(" + [r, g, b].join(",") + ")");
+      }
+    };
+
+    const start = (function () {
+      const redSlider = document.getElementById("redSlider");
+      const greenSlider = document.getElementById("greenSlider");
+      const blueSlider = document.getElementById("blueSlider");
+      const nav = document.getElementById("navigationContainer");
+      let red = 128;
+      let green = 128;
+      let blue = 128;
+
+      redSlider.style.width = "90%";
+      redSlider.style.accentColor = "red";
+
+      greenSlider.style.width = "90%";
+      greenSlider.style.accentColor = "green";
+
+      blueSlider.style.width = "90%";
+      blueSlider.style.accentColor = "blue";
+
+      redSlider.onchange = (evt) => {
+        red = evt.target.value;
+        updateColors(red, green, blue);
+      };
+
+      greenSlider.onchange = (evt) => {
+        green = evt.target.value;
+        updateColors(red, green, blue);
+      };
+
+      blueSlider.onchange = (evt) => {
+        blue = evt.target.value;
+        updateColors(red, green, blue);
+      };
+
+      nav.addEventListener("click", (evt) => {
+        const pageText = document.getElementById("PageText");
+        pageText.innerHTML = evt.target.id;
+      });
+    })();
+  </script>
+</html>
