@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 2s linear infinite;
+        visibility: hidden;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Smart Hołm Emulejszyn</h1>
+    </header>
+    <table>
+      <tr>
+        <th><p>Salon</p></th>
+        <th><p>Kitchen</p></th>
+        <th><p>Bathroom</p></th>
+        <th><p>Gar rage</p></th>
+        <th><p>Attic</p></th>
+        <th><p>Workshop</p></th>
+        <th><p>My room</p></th>
+        <th>
+          <p>Laundry</p>
+          <p>room</p>
+        </th>
+      </tr>
+      <tr>
+        <th><img id="LB1" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB2" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB3" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB4" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB5" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB6" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB7" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+        <th><img id="LB8" src="LightBulbOff.png" state="off" width="85" height="165" /></th>
+      </tr>
+      <tr>
+        <th><div id="LDR1" class="loader"></div></th>
+        <th><div id="LDR2" class="loader"></div></th>
+        <th><div id="LDR3" class="loader"></div></th>
+        <th><div id="LDR4" class="loader"></div></th>
+        <th><div id="LDR5" class="loader"></div></th>
+        <th><div id="LDR6" class="loader"></div></th>
+        <th><div id="LDR7" class="loader"></div></th>
+        <th><div id="LDR8" class="loader"></div></th>
+      </tr>
+      <tr>
+        <th><button id="BTN1" state="off">Turn on</button></th>
+        <th><button id="BTN2" state="off">Turn on</button></th>
+        <th><button id="BTN3" state="off">Turn on</button></th>
+        <th><button id="BTN4" state="off">Turn on</button></th>
+        <th><button id="BTN5" state="off">Turn on</button></th>
+        <th><button id="BTN6" state="off">Turn on</button></th>
+        <th><button id="BTN7" state="off">Turn on</button></th>
+        <th><button id="BTN8" state="off">Turn on</button></th>
+      </tr>
+    </table>
+    <div>
+      <a href="http://www.freepik.com">Light bulb images designed by Freepik</a>
+    </div>
+  </body>
+  <script src="index.min.js"></script>
+</html>
